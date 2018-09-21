@@ -1,0 +1,28 @@
+body {
+    width: 400px;
+    margin: auto;
+    border-radius: 60px;
+    background-color: lime;
+    margin-top: 5%
+
+
+    
+}
+
+td {
+    /* padding: 20%; */
+    border:  1px solid black;
+    width: 70px;
+    height: 70px;
+    
+    
+    
+
+}
+
+
+
+
+
+
+
