@@ -3,7 +3,7 @@ body {
     margin: auto;
     border-radius: 60px;
     background-color: lime;
-    margin-top: 5%
+    margin-top: 5%;
 
 
     
@@ -14,15 +14,17 @@ td {
     border:  1px solid black;
     width: 70px;
     height: 70px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: white;
     
-    
-    
-
 }
 
+circle.red {
+	fill: #D50000;
+}
 
-
-
-
-
+circle.yellow {
+	fill: #DAD400;
+}
 
