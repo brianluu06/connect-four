@@ -10,21 +10,16 @@ body {
 }
 
 td {
-    /* padding: 20%; */
     border:  1px solid black;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     margin: 5px;
-    border-radius: 50%;
+    border-radius: 60%;
     background-color: white;
+
     
-}
+}    
 
-circle.red {
-	fill: #D50000;
-}
-
-circle.yellow {
-	fill: #DAD400;
-}
-
+a:hover {
+    background-color: gold;
+  }
