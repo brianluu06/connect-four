@@ -48,3 +48,29 @@ EventListeners
 DOMContentLoaded:
 Display Winner
  
+
+
+
+
+ target.id.chat
+
+
+
+ lookup that translates 
+ null = 
+ color look and objects
+ "
+
+ null: white
+ 1:  yellow
+ -1: Rendering
+
+ colorLookup= {
+
+ }
+
+ board.forEach (function(col, colidx)
+ col.forEach( function(cell, rowIdx){
+     -select the if
+     
+ })

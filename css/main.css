@@ -16,10 +16,12 @@ td {
     margin: 5px;
     border-radius: 60%;
     background-color: white;
-
     
 }    
 
+button {
+    width: 53px;
+}
 a:hover {
     background-color: gold;
   }
