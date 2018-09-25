@@ -17,14 +17,20 @@ getting iteration set up.
 Getting out of forLoop = break
 
 function render
+------------------------------------
 
+ winner check logic solution- for loops
 for each col
 -for each row
 if col-row is null break;
 winner= checkDiskWin (col,row);
 if winner break
+
+
 - if winner break
 
+winner check?
+--------------------------------------
 
 
 ## Pseudocode

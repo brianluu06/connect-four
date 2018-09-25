@@ -3,10 +3,11 @@ body {
     margin: auto;
     border-radius: 60px;
     background-color: lime;
-    margin-top: 5%;
+    margin-top: 5%;  
+}
 
-
-    
+h3 {
+    text-align: center;
 }
 
 td {
@@ -16,12 +17,12 @@ td {
     margin: 5px;
     border-radius: 60%;
     background-color: white;
-    
 }    
 
 button {
     width: 53px;
 }
+
 a:hover {
     background-color: gold;
-  }
+}

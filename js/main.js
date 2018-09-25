@@ -1,54 +1,46 @@
 /*----- constants -----*/
 
-var playerLook;
-// "1" = yellow
-// "-1" = red
+var playerLookup = {
+    '1': 'red',
+    '-1': 'yellow',
+    'null': 'white',
+};
+
 
 /*----- app's state (variables) -----*/
 
 
 /*----- cached element references -----*/
 
-
+var messageEl = document.querySelector('h3');
+var boardEl = document.getElementById('board');
 
 
 /*----- event listeners -----*/
-document.getElementById('button0').addEventListener('click', oneClick);
-document.getElementById('button1').addEventListener('click', oneClick);
-document.getElementById('button2').addEventListener('click', oneClick);
-document.getElementById('button3').addEventListener('click', oneClick);
-document.getElementById('button4').addEventListener('click', oneClick);
-document.getElementById('button5').addEventListener('click', oneClick);
-document.getElementById('button6').addEventListener('click', oneClick);
+document.getElementById('button0').addEventListener('click', handleDrop);
+document.getElementById('button1').addEventListener('click', handleDrop);
+document.getElementById('button2').addEventListener('click', handleDrop);
+document.getElementById('button3').addEventListener('click', handleDrop);
+document.getElementById('button4').addEventListener('click', handleDrop);
+document.getElementById('button5').addEventListener('click', handleDrop);
+document.getElementById('button6').addEventListener('click', handleDrop);
 
+document.getElementById('replay').addEventListener('click', initialize);
 
 /*----- functions -----*/
-function oneClick(event) {
+function handleDrop(event) {
     var target = event.target;
-    if (target.tagName !== 'BUTTON') return;
-     var columnNum = parseInt(target.id.charAt(6));
-     if (!board[columnNum].includes(null)) return;
+    if (target.tagName !== 'BUTTON' || winner) return;
+    var columnNum = parseInt(target.id.charAt(6));
+    if (!board[columnNum].includes(null)) return;
     var row = board[columnNum].indexOf(null);
-    console.log(event.target.id[6]); // 1..for loop
-     board[columnNum][row] = turn;
-    if (turn === 1) {
-         board[columnNum][row] = '1';
-    };
-    if (turn === 2) {
-        board[columnNum][row] = '-1';
-    };
+    board[columnNum][row] = turn;
     turn *= -1;
-
-
-
-    console.log(board);
-
-
-
+    winner = getWinner();
+    render();
 };
 
 function initialize() {
-
     board = [
         [null, null, null, null, null, null],
         [null, null, null, null, null, null],
@@ -60,12 +52,60 @@ function initialize() {
     ];
     winner = null;
     turn = 1;
+    render();
 };
 
 
-function render (){  //forEach
+function getWinner() {
+    for (var colIdx = 0; colIdx < board.length; colIdx++) {
+        for (var rowIdx = 0; rowIdx < board.length; rowIdx++) {
+            if (board[colIdx][rowIdx] === null) break;
+            winner = checkPosWin(colIdx, rowIdx);
+            if (winner) break;
+        }
+        if (winner) break;
+    }
+    return winner;
+}
+
+function checkPosWin(colIdx, rowIdx) {
+    winner = checkUp(colIdx, rowIdx);
+    if (winner) return winner;
+    winner = checkAcross(colIdx, rowIdx);
+    if (winner) return winner;
 
 }
+//stub up function-define
+function checkUp(colIdx, rowIdx) {
+    if (rowIdx > 2) return null;
+    var total = Math.abs( board[colIdx][rowIdx] + board[colIdx][rowIdx + 1] + board[colIdx][rowIdx + 2] + board[colIdx][rowIdx + 3] );
+    return  (total === 4) ? board[colIdx][rowIdx] : null;
+}
+
+function checkAcross(colIdx, rowIdx) {
+    if (colIdx > 3) return null;
+    var total = Math.abs( board[colIdx][rowIdx] + board[colIdx][rowIdx + 1] + board[colIdx][rowIdx + 2] + board[colIdx][rowIdx + 3] );
+    return  (total === 4) ? board[colIdx][rowIdx] : null;
+
+}
+
+
+function render() { // changes the color of the player turn- Transfer state to the DOM
+    board.forEach(function (col, colIdx) {
+        col.forEach(function (cell, rowIdx) {
+            var td = document.getElementById(`col${colIdx}row${rowIdx}`);
+            td.style.backgroundColor = playerLookup[cell];
+        });
+    });
+    if (winner) {
+        messageEl.textContent = `${playerLookup[winner].toUpperCase()} Wins!`;
+    } else {
+        messageEl.textContent = `${playerLookup[turn].toUpperCase()}'s Turn`;
+    }
+    boardEl.style.visibility = winner ? 'hidden' : 'visible';
+}
+
+
 
 
 
