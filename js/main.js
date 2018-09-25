@@ -3,12 +3,11 @@
 var playerLook;
 
 /*----- app's state (variables) -----*/
-var playerRed; // x
-var playerYellow; // y
-var board;
-var turn;
+// "1" 
+// "-1"
 
 /*----- cached element references -----*/
+
 
 
 
@@ -26,51 +25,53 @@ document.getElementById('button7').addEventListener('click', oneClick);
 /*----- functions -----*/
 function oneClick(event) {
     var target = event.target;
-    // if (target.tagName !== 'TD') return;
+    if (target.tagName !== 'BUTTON') return;
 
-    var columnNum = parseInt(event.target.id[6]) - 1;
-    // console.log(event.target.id[6]); // 1..for loop
-    for (let i = 6; i >= 0; i--) {
-        // const element = board[i][columnNum];
-        if (i === 6) {
-            // console.log(element);
-        }
 
-        // if board[i][columnNum] is null 
-        // then set it x or y based on turn
+     var columnNum = parseInt(event.target.id[6]) - 1;
+     if (!board[columnNum].includes(null));
+    var row = board[columnNum].indexOf(null);
+    console.log(event.target.id[6]); // 1..for loop
+    board[columnNum][row] = turn;
+    if (turn === 1) {
+        board[columnNum][row] = '1';
+    };
+    if (turn === 2) {
+        board[columnNum][row] = '-1';
+    };
+    turn *= -1;
+    
+    // for (let i = 6; i >= 0; i--) {
+    //     // const element = board[i][columnNum];
+    //     if (i === 6) {
+    //         // console.log(element);
+    //     }
+
+        // if board[i][columnNum] is null
+        //then set it x or y based on turn
         // change turn
 
         // if (!board[i][columnNum]) {
-        //     if (turn === 1) {
-        //         board[i][columnNum] = 'x'
-        //     }
-            
-        //     if (turn === 2) {
-        //         board[i][columnNum] = 'y'
-        //     }
+    
 
-            
-        // }
+    console.log(board);
 
-        console.log(board);
+};
 
-    };
+function initialize() {
 
-    function initialize() {
+    board = [
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null]
+    ];
+    winner = null;
+    turn = 1;
+};
 
-        board = [
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null]
-        ];
-        winner = null;
-        turn = 1;
-    };
+initialize();
 
-    initialize();
-
-}

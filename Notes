@@ -13,7 +13,10 @@ state.
 player and boards/winner
 ## UI Notes
 2 players. 1vs1
+getting iteration set up.
+Getting out of forLoop = break
 
+function render
 
 
 
