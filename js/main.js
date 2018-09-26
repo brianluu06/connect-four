@@ -75,19 +75,37 @@ function checkPosWin(colIdx, rowIdx) {
     if (winner) return winner;
 
 }
-//stub up function-define
+//stub up function-define// 
 function checkUp(colIdx, rowIdx) {
     if (rowIdx > 2) return null;
-    var total = Math.abs( board[colIdx][rowIdx] + board[colIdx][rowIdx + 1] + board[colIdx][rowIdx + 2] + board[colIdx][rowIdx + 3] );
-    return  (total === 4) ? board[colIdx][rowIdx] : null;
+    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx][rowIdx + 1] + board[colIdx][rowIdx + 2] + board[colIdx][rowIdx + 3]);
+    return (total === 4) ? board[colIdx][rowIdx] : null;
 }
 
 function checkAcross(colIdx, rowIdx) {
-    if (colIdx > 3) return null;
-    var total = Math.abs( board[colIdx][rowIdx] + board[colIdx][rowIdx + 1] + board[colIdx][rowIdx + 2] + board[colIdx][rowIdx + 3] );
-    return  (total === 4) ? board[colIdx][rowIdx] : null;
+    if (colIdx > 2) return null;
+    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]);
+    return (total === 4) ? board[colIdx][rowIdx] : null;
+};
+
+
+function checkVerticalup(colIdx, rowIdx) {
+    if (colIdx > 2) return null;
+    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]);
+    return (total === 4) ? board[colIdx][rowIdx] : null;
 
 }
+
+function checkVerticaldown(colIdx, rowIdx) {
+
+
+
+
+
+}
+
+
+
 
 
 function render() { // changes the color of the player turn- Transfer state to the DOM

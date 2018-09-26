@@ -2,8 +2,10 @@ body {
     width: 400px;
     margin: auto;
     border-radius: 60px;
-    background-color: lime;
-    margin-top: 5%;  
+    background-color:cornflowerblue;
+    margin-top: 5%;
+    text-align: center;
+
 }
 
 h3 {
@@ -21,6 +23,8 @@ td {
 
 button {
     width: 53px;
+    background:rgb(96, 144, 148);
+    border-radius: 5px;
 }
 
 a:hover {
