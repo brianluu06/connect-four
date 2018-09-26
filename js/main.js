@@ -6,7 +6,6 @@ var playerLookup = {
     'null': 'white',
 };
 
-
 /*----- app's state (variables) -----*/
 
 
@@ -14,7 +13,6 @@ var playerLookup = {
 
 var messageEl = document.querySelector('h3');
 var boardEl = document.getElementById('board');
-
 
 /*----- event listeners -----*/
 document.getElementById('button0').addEventListener('click', handleDrop);
@@ -55,7 +53,6 @@ function initialize() {
     render();
 };
 
-
 function getWinner() {
     for (var colIdx = 0; colIdx < board.length; colIdx++) {
         for (var rowIdx = 0; rowIdx < board.length; rowIdx++) {
@@ -73,6 +70,14 @@ function checkPosWin(colIdx, rowIdx) {
     if (winner) return winner;
     winner = checkAcross(colIdx, rowIdx);
     if (winner) return winner;
+    winner = checkVerticalup(colIdx, rowIdx);
+    if (winner) return winner;
+    winner = checkVerticaldown(colIdx, rowIdx);
+    if (winner) return winner;
+
+
+    // winner = checkVerticaldown(colIdx, rowIdx);
+    // if (winner) return winner;
 
 }
 //stub up function-define// 
@@ -83,30 +88,23 @@ function checkUp(colIdx, rowIdx) {
 }
 
 function checkAcross(colIdx, rowIdx) {
-    if (colIdx > 2) return null;
+    if (colIdx > 3) return null;
     var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]);
     return (total === 4) ? board[colIdx][rowIdx] : null;
 };
 
-
 function checkVerticalup(colIdx, rowIdx) {
-    if (colIdx > 2) return null;
-    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]);
+    if (colIdx > 3 || rowIdx > 2) return null;
+    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx + 1] + board[colIdx + 2][rowIdx + 2] + board[colIdx + 3][rowIdx + 3]);
     return (total === 4) ? board[colIdx][rowIdx] : null;
-
 }
+
 
 function checkVerticaldown(colIdx, rowIdx) {
-
-
-
-
-
+    if (colIdx > 3 || rowIdx < 2) return null;
+    var total = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx - 1] + board[colIdx + 2][rowIdx - 2] + board[colIdx + 3][rowIdx - 3]);
+    return (total === 4) ? board[colIdx][rowIdx] : null;
 }
-
-
-
-
 
 function render() { // changes the color of the player turn- Transfer state to the DOM
     board.forEach(function (col, colIdx) {
@@ -122,11 +120,4 @@ function render() { // changes the color of the player turn- Transfer state to t
     }
     boardEl.style.visibility = winner ? 'hidden' : 'visible';
 }
-
-
-
-
-
-
 initialize();
-
