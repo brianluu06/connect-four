@@ -1,6 +1,6 @@
 body {
     width: 400px;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 60px;
     /* background-color:cornflowerblue;   */
     margin-top: 5%;
@@ -36,3 +36,20 @@ button {
 a:hover {
     background-color: gold;
 }
+
+
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        width: 100%;
+    }
+}
+/* 
+@media only screen 
+  and (max-device-width: 500px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        width: 100%;
+    }
+} */
