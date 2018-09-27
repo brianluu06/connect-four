@@ -29,12 +29,24 @@ td {
 
 button {
     width: 53px;
-    background:rgb(96, 144, 148);
-    border-radius: 5px;
+    font-size: 20px;
+    color: turquoise;
+    background: transparent;
+    border: none; 
+    padding-bottom: 0;
+
+    /* color: white; */
+    /* font-size: 20px; */
+    /* width: 53px;  */
+    /* border: none; */
+    
+    
+     
 }
 
 a:hover {
     background-color: gold;
+    
 }
 
 
@@ -45,6 +57,18 @@ a:hover {
         width: 100%;
     }
 }
+
+#replay {
+    padding-top: 20px;
+    width: 300px;
+}
+
+table {
+    padding-top: 20px;
+    
+}
+
+
 /* 
 @media only screen 
   and (max-device-width: 500px) 
