@@ -7,7 +7,9 @@ var playerLookup = {
 };
 
 /*----- app's state (variables) -----*/
+var beepAudio = new Audio(''
 
+);
 
 /*----- cached element references -----*/
 
@@ -24,6 +26,9 @@ document.getElementById('button5').addEventListener('click', handleDrop);
 document.getElementById('button6').addEventListener('click', handleDrop);
 
 document.getElementById('replay').addEventListener('click', initialize);
+
+beepAudio.play();
+
 
 /*----- functions -----*/
 function handleDrop(event) {

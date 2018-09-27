@@ -2,18 +2,24 @@ body {
     width: 400px;
     margin: auto;
     border-radius: 60px;
-    background-color:cornflowerblue;
+    /* background-color:cornflowerblue;   */
     margin-top: 5%;
     text-align: center;
+    background-image: url(../sweetpic.jpg);
+    padding: 85px;
+}
 
+h1 {
+    color: lime;
 }
 
 h3 {
     text-align: center;
+    color: linen;
 }
 
 td {
-    border:  1px solid black;
+    border:  1px solid rgb(240, 250, 23);
     width: 60px;
     height: 60px;
     margin: 5px;
