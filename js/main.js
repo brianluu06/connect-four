@@ -45,7 +45,7 @@ function handleDrop(event) {
         isTie = true;
     }
     if (turn === 1) beepAudio.play();
-    else beeptwo.play(); 
+    else beeptwo.play();
     render();
 };
 
