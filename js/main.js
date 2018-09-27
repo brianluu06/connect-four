@@ -6,10 +6,12 @@ var playerLookup = {
     'null': 'white',
 };
 
-/*----- app's state (variables) -----*/
-var beepAudio = new Audio(''
+var tieCounter = 0;
+var isTie = false;
 
-);
+/*----- app's state (variables) -----*/
+ var beepAudio = new Audio('Lightsaber.mp3');
+ var beeptwo = new Audio('Electricity.mp3');
 
 /*----- cached element references -----*/
 
@@ -27,7 +29,7 @@ document.getElementById('button6').addEventListener('click', handleDrop);
 
 document.getElementById('replay').addEventListener('click', initialize);
 
-beepAudio.play();
+ 
 
 
 /*----- functions -----*/
@@ -40,6 +42,13 @@ function handleDrop(event) {
     board[columnNum][row] = turn;
     turn *= -1;
     winner = getWinner();
+    tieCounter++;
+    if (tieCounter === 42){
+        isTie = true;    
+    }
+    
+    if (turn === 1) beepAudio.play();
+    else beeptwo.play();
     render();
 };
 
@@ -120,6 +129,8 @@ function render() { // changes the color of the player turn- Transfer state to t
     });
     if (winner) {
         messageEl.textContent = `${playerLookup[winner].toUpperCase()} Wins!`;
+    } else if (isTie) {
+        messageEl.textContent = `It's a tie!`;
     } else {
         messageEl.textContent = `${playerLookup[turn].toUpperCase()}'s Turn`;
     }
