@@ -50,13 +50,13 @@ a:hover {
 }
 
 
-@media only screen 
+ /* @media only screen  
   and (max-device-width: 667px) 
   and (-webkit-min-device-pixel-ratio: 2) {
     body {
         width: 100%;
     }
-}
+} */
 
 #replay {
     padding-top: 20px;

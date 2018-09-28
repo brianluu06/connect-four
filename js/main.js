@@ -6,7 +6,7 @@ var playerLookup = {
     'null': 'white',
 };
 
-var player1 = 0
+var player1 = 0 //player1 and player2 score board
 var player2 = 0
 
 var tieCounter = 0;
