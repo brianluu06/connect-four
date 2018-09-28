@@ -5,7 +5,7 @@ body {
     /* background-color:cornflowerblue;   */
     margin-top: 5%;
     text-align: center;
-    background-image: url(../sweetpic.jpg);
+    background-image: url(../images/sweetpic.jpg);
     padding: 85px;
 }
 
@@ -13,7 +13,7 @@ h1 {
     color: lime;
 }
 
-h3 {
+h3, h4 {
     text-align: center;
     color: linen;
 }

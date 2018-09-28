@@ -1,5 +1,6 @@
  #Connect-Four Game
-____________________________________________________
+ ____________________________________________________
+
 
  Connect-four game for project 1 at General  Assembly
 
@@ -50,6 +51,9 @@ ____________________________________________________
 
 # Unsolved problems:
  Once in a blue moon, there will be a tie game, but still can continue playing.
+ 
+ Can Play on All Desktop Versions, and some mobile version unfortunately. I wanted to do both.
+ 
 
 
 

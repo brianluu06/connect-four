@@ -6,6 +6,9 @@ var playerLookup = {
     'null': 'white',
 };
 
+var player1 = 0
+var player2 = 0
+
 var tieCounter = 0;
 var isTie = false;
 
@@ -16,6 +19,8 @@ var beeptwo = new Audio('Electricity.mp3');
 /*----- cached element references -----*/
 
 var messageEl = document.querySelector('h3');
+var redPlayerEl = document.getElementById('redplayer');
+var yellowPlayerEl = document.getElementById('yellowplayer');
 var boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
@@ -124,7 +129,25 @@ function render() { // changes the color of the player turn- Transfer state to t
             td.style.backgroundColor = playerLookup[cell];
         });
     });
+    redPlayerEl.textContent = `Red Score: ${player2}`;
+    yellowPlayerEl.textContent = `Yellow Score: ${player1}`;
     if (winner) {
+        console.log(winner);
+        if (winner === -1) {
+            // player1 and player2 are counters
+            //every time there's a win, it adds 1 to the score
+            // so
+            // next step would be to display this on the page
+            // similar to how you're displaying the winners
+            // 
+            player1++;
+            yellowPlayerEl.textContent = `Yellow Score: ${player1}`;
+            console.log(player1, "player1");
+        } else {
+            player2++;
+            redPlayerEl.textContent = `Red Score: ${player2}`;
+            console.log(player2, "player2")
+        }
         messageEl.textContent = `${playerLookup[winner].toUpperCase()} Wins!`;
     } else if (isTie) {
         messageEl.textContent = `It's a tie!`;
