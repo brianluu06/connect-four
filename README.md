@@ -5,7 +5,7 @@
  Connect-four game for project 1 at General  Assembly
 
 # Wireframes
-![Connect-Four Model](./images/GameShot1.png)
+![Connect-Four Model](/images/GameShot1.png)
 
 
 
