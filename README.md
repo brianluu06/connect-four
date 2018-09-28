@@ -1,11 +1,11 @@
- #Connect-Four Game
+ # Connect-Four Game
  ____________________________________________________
 
 
  Connect-four game for project 1 at General  Assembly
 
 # Wireframes
-![Connect-Four Model](./images/GameShot1.png)
+![Connect-Four Model](https://i.imgur.com/z4ENtK9.png)
 
 
 
